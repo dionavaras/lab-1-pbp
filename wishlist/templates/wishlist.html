@@ -1,10 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h5>Nama: </h5>
-<b>{{nama}}</b>
+<style>
+    .btn-outline-success {
+        float: right;
+    }
+</style>
 
-<table>
+<nav class="navbar navbar-expand-lg" style="background-color: #f5a763;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">{{nama}}</a>
+      <div class="" id="navbarSupportedContent">
+        <button class="btn btn-outline-success" type="submit"onclick="location.href=`{% url 'wishlist:logout' %}`">Logout</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+<table class="table table-striped table-hover">
     <tr>
     <th>Nama Barang</th>
     <th>Harga Barang</th>
@@ -13,9 +26,9 @@
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
     {% for barang in list_barang %}
         <tr>
-            <th>{{barang.nama_barang}}</th>
-            <th>{{barang.harga_barang}}</th>
-            <th>{{barang.deskripsi}}</th>
+            <td>{{barang.nama_barang}}</td>
+            <td>{{barang.harga_barang}}</td>
+            <td>{{barang.deskripsi}}</td>
         </tr>
     {% endfor %}
 </table>
